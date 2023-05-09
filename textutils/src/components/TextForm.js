@@ -61,6 +61,18 @@ export default function TextForm(props) {
     setText(event.target.value);
   };
 
+  //function to copy the text on clipboard
+  const handleCopy =()=>{
+    var text = document.getElementById("mybox");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  }
+
+  const RemoveExtraSpaces= ()=>{
+    let newtext = text.split(/[  ]+/);
+    setText(newtext.join(" "))
+  }
+
   // Creating a state to change to text to uppercase lowercase or some other operation.
   const [text, setText] = useState(" ");
   // setText("new text");  //correct way to set the text
@@ -86,19 +98,25 @@ export default function TextForm(props) {
           Lowercase
         </button>
         <button className="btn btn-primary mx-1" onClick={handleSentenceCase}>
-          Sentence Case
+          SentenceCase
         </button>
         <button className="btn btn-primary mx-1" onClick={handleCapitalize}>
-          Capitalize Case
+          CapitalizeCase
         </button>
         <button className="btn btn-primary mx-1" onClick={handleFirstLetter}>
-          Capitalize first letter
+          CapitalizeFirstLetter
         </button>
         <button className="btn btn-primary mx-1" onClick={handleReverseString}>
-          Reverse text
+          ReverseText
         </button>
         <button className="btn btn-primary mx-1" onClick={handleclear}>
           Clear
+        </button>
+        <button className="btn btn-primary mx-1" onClick={handleCopy}>
+          Copy
+        </button>
+        <button className="btn btn-primary mx-1" onClick={RemoveExtraSpaces}>
+          RemoveExtraSpaces
         </button>
 
         
