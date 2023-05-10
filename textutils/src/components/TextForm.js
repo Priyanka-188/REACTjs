@@ -97,26 +97,28 @@ export default function TextForm(props) {
           {" "}
           Lowercase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleSentenceCase}>
+        <button className="btn btn-primary my-3  mx-1" onClick={handleSentenceCase}>
           SentenceCase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleCapitalize}>
+        <button className="btn btn-primary  my-3 mx-1" onClick={handleCapitalize}>
           CapitalizeCase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleFirstLetter}>
+        <button className="btn btn-primary my-3  mx-1" onClick={handleFirstLetter}>
           CapitalizeFirstLetter
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleReverseString}>
+        <button className="btn btn-primary my-3  mx-1" onClick={handleReverseString}>
           ReverseText
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleclear}>
-          Clear
-        </button>
-        <button className="btn btn-primary mx-1" onClick={handleCopy}>
+       
+        <button className="btn btn-primary my-3  mx-1" onClick={handleCopy}>
           Copy
         </button>
-        <button className="btn btn-primary mx-1" onClick={RemoveExtraSpaces}>
+        <button className="btn btn-primary  my-3 mx-1" onClick={RemoveExtraSpaces}>
           RemoveExtraSpaces
+        </button>
+
+        <button className="btn btn-primary  my-3 mx-1" onClick={handleclear}>
+          Clear
         </button>
 
         

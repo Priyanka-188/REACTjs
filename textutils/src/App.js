@@ -3,9 +3,12 @@ import PropTypes from "prop-types";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-import AboutUs from "./components/AboutUs";
+// import { useState } from "react";
+// import AboutUs from "./components/AboutUs";
 
 function App() {
+  // make a state to see wheather mode will be dark or light 
+  // const[Mode,setMode] = useState(false);
   return (
     <>
       <Navbar title="TextFun" about="About" />
@@ -15,7 +18,7 @@ function App() {
         <TextForm heading="Enter the Text to analyze" />
       </div>
 
-      <AboutUs/>
+      {/* <AboutUs/> */}
     </>
   );
 }
