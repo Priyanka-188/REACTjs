@@ -77,7 +77,7 @@ export default function TextForm(props) {
   const [text, setText] = useState(" ");
   // setText("new text");  //correct way to set the text
   return (
-    <div className="container">
+    <div className="container" style={{color:props.mode==="dark"? 'white':'black'}}>
       <div className="mb-3">
         <label htmlFor="mybox" className="form-label ">
           <h1>{props.heading}</h1>
@@ -87,6 +87,7 @@ export default function TextForm(props) {
           id="mybox"
           rows="8"
           value={text}
+          style={{backgroundColor:props.mode==="dark"? 'grey':'white',color:props.mode==="dark"? 'white':'black'}}
           onChange={handleOnChange} //setting the value of text default initially but change in text (addition of text ) will be handle by onChnage (handleOnClick ) function.
         ></textarea>
         <button className="btn btn-primary my-3" onClick={handleUpClick}>
@@ -123,14 +124,14 @@ export default function TextForm(props) {
 
         
       </div>
-      <div className="container">
+      <div className="container" style={{color:props.mode==="dark"? 'white':'black'}}>
         <h2>Your Text Summary</h2>
         <p>
           {text.split(" ").length} words and {text.length} characters
         </p>
         <p>{0.008 * text.split(" ").length} Minutes to read</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text : "Enter something in the textbox above to preview it here."}</p>
       </div>
     </div>
   );
