@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
@@ -26,18 +27,16 @@ export default function Navbar(props) {
               <a className="nav-link active" aria-current="page" href="/">
                 Home
               </a>
+              
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-link" href="./about">
                 {props.about}
               </a>
+              
             </li>
 
-            <li className="nav-item">
-              <a className="nav-link" href="/">
-                Contact
-              </a>
-            </li>
+          
           </ul>
           {/* <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
@@ -47,7 +46,7 @@ export default function Navbar(props) {
             <input
               className="form-check-input"
               type="checkbox"
-              role="switch"
+              
               id="switch"
               onClick={props.toggleMode}
             />

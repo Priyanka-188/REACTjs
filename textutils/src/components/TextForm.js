@@ -64,7 +64,7 @@ export default function TextForm(props) {
   };
 
   const RemoveExtraSpaces = () => {
-    let newtext = text.split(/[  ]+/);
+    let newtext = text.split(/[ ]+/);
     setText(newtext.join(" "));
     props.showAlert("Extra-Spaces Removed ! ", "success");
   };
