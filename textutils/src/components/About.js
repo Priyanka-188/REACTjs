@@ -1,6 +1,6 @@
 import React ,{useState}from "react";
 
-export default function AboutUs() {
+export default function About() {
   
   // definig state
   const [myStyle,setmyStyle] = useState( {
@@ -21,7 +21,7 @@ export default function AboutUs() {
    else{
     setmyStyle({
       color:"white",
-      backgroundColor:'black',
+      backgroundColor:'#212529',
       border: '0.5px solid white',
     })
     setmyText("Enable light mode")

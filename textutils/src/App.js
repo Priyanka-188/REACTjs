@@ -1,11 +1,13 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from "prop-types";
 
 import "./App.css";
 import Navbar from "./components/Navbar";
-import TextForm from "./components/TextForm";
+// import TextForm from "./components/TextForm";
 import { useState } from "react";
 import Alert from "./components/Alert";
-// import AboutUs from "./components/AboutUs";
+import About from "./components/About";
 
 function App() {
   // make a state to see wheather mode will be dark or light 
@@ -44,10 +46,10 @@ function App() {
       <Alert alert = {alert}/>
 
       <div className="container my-3">
-        <TextForm heading="Enter the Text to analyze" mode={mode} showAlert ={showAlert}/>
+        {/* <TextForm heading="Enter the Text to analyze" mode={mode} showAlert ={showAlert}/> */}
       </div>
 
-      {/* <AboutUs/> */}
+      <About/>
     </>
   );
 }
