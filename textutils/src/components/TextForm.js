@@ -6,21 +6,20 @@ export default function TextForm(props) {
     // console.log("Uppercase was clicked!" +text)
     let newtext = text.toUpperCase();
     setText(newtext);
-    props.showAlert("Converted to upperCase! ","success");
+    props.showAlert("Converted to upperCase! ", "success");
   };
 
   // arrow fucntion to change text to lowercase
   const handleLowClick = () => {
     let newtext = text.toLowerCase();
     setText(newtext);
-    props.showAlert("Converted to lowerCase! ","success");
+    props.showAlert("Converted to lowerCase! ", "success");
   };
   // function to clear whole text
   const handleclear = () => {
     setText(" ");
-    props.showAlert("Text cleared ! ","success");
+    props.showAlert("Text cleared ! ", "success");
   };
-
 
   //function to capitalize first letter of every word
   const handleCapitalize = () => {
@@ -31,7 +30,7 @@ export default function TextForm(props) {
     }
     const newtext = arr.join(" ");
     setText(newtext);
-    props.showAlert("Capitalize the text ! ","success");
+    props.showAlert("Capitalize the text ! ", "success");
   };
 
   //function to capitalize first letter of every line.
@@ -43,8 +42,8 @@ export default function TextForm(props) {
       arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
     }
     const newtext = arr.join(". ");
-    setText(newtext); 
-    props.showAlert("Capitalize first letter of each word ! ","success");
+    setText(newtext);
+    props.showAlert("Capitalize first letter of each word ! ", "success");
   };
 
   //  function to copy the text to the clipboard
@@ -53,23 +52,22 @@ export default function TextForm(props) {
     arr = arr.reverse();
     const newtext = arr.join(" ");
     setText(newtext);
-    props.showAlert("Text is Reversed ! ","success");
-  }
+    props.showAlert("Text is Reversed ! ", "success");
+  };
 
-  
   //function to copy the text on clipboard
-  const handleCopy =()=>{
+  const handleCopy = () => {
     var text = document.getElementById("mybox");
     text.select();
     navigator.clipboard.writeText(text.value);
-    props.showAlert("Copied to clipboard ! ","success");
-  }
+    props.showAlert("Copied to clipboard ! ", "success");
+  };
 
-  const RemoveExtraSpaces= ()=>{
+  const RemoveExtraSpaces = () => {
     let newtext = text.split(/[  ]+/);
-    setText(newtext.join(" "))
-    props.showAlert("Extra-Spaces Removed ! ","success");
-  }
+    setText(newtext.join(" "));
+    props.showAlert("Extra-Spaces Removed ! ", "success");
+  };
 
   // arrow function to handle additon of text in the textarea
   const handleOnChange = (event) => {
@@ -77,12 +75,14 @@ export default function TextForm(props) {
     setText(event.target.value);
   };
 
-
   // Creating a state to change to text to uppercase lowercase or some other operation.
   const [text, setText] = useState(" ");
   // setText("new text");  //correct way to set the text
   return (
-    <div className="container" style={{color:props.mode==="dark"? 'white':'black'}}>
+    <div
+      className="container"
+      style={{ color: props.mode === "dark" ? "white" : "black" }}
+    >
       <div className="mb-3">
         <label htmlFor="mybox" className="form-label ">
           <h1>{props.heading}</h1>
@@ -91,7 +91,10 @@ export default function TextForm(props) {
           className="form-control "
           id="mybox"
           rows="8"
-          style={{backgroundColor:props.mode==="dark"? 'grey':'white',color:props.mode==="dark"? 'white':'black'}}
+          style={{
+            backgroundColor: props.mode === "dark" ? "grey" : "white",
+            color: props.mode === "dark" ? "white" : "black",
+          }}
           value={text}
           onChange={handleOnChange} //setting the value of text default initially but change in text (addition of text ) will be handle by onChnage (handleOnClick ) function.
         ></textarea>
@@ -103,37 +106,55 @@ export default function TextForm(props) {
           {" "}
           Lowercase
         </button>
-        <button className="btn btn-primary  my-3 mx-1" onClick={handleCapitalize}>
+        <button
+          className="btn btn-primary  my-3 mx-1"
+          onClick={handleCapitalize}
+        >
           Capitalize Case
         </button>
-        <button className="btn btn-primary my-3  mx-1" onClick={handleFirstLetter}>
+        <button
+          className="btn btn-primary my-3  mx-1"
+          onClick={handleFirstLetter}
+        >
           Capitalize After FullStop
         </button>
-        <button className="btn btn-primary my-3  mx-1" onClick={handleReverseString}>
+        <button
+          className="btn btn-primary my-3  mx-1"
+          onClick={handleReverseString}
+        >
           Reverse Text
         </button>
-       
+
         <button className="btn btn-primary my-3  mx-1" onClick={handleCopy}>
           Copy
         </button>
-        <button className="btn btn-primary  my-3 mx-1" onClick={RemoveExtraSpaces}>
+        <button
+          className="btn btn-primary  my-3 mx-1"
+          onClick={RemoveExtraSpaces}
+        >
           Remove ExtraSpaces
         </button>
 
         <button className="btn btn-primary  my-3 mx-1" onClick={handleclear}>
           Clear
         </button>
-
-        
       </div>
-      <div className="container" style={{color:props.mode==="dark"? 'white':'black'}}>
+      <div
+        className="container"
+        style={{ color: props.mode === "dark" ? "white" : "black" }}
+      >
         <h2>Your Text Summary</h2>
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {text.trim() === "" ? 0 : text.match(/\S+/g).length} words and{" "}
+          {text.replace(/\s+/g, "").length} characters
         </p>
         <p>{0.008 * text.split(" ").length} Minutes to read</p>
         <h2>Preview</h2>
-        <p>{text.length>0?text : "Enter something in the textbox above to preview it here."}</p>
+        <p>
+          {text.length > 0
+            ? text
+            : "Enter something in the textbox above to preview it here."}
+        </p>
       </div>
     </div>
   );
