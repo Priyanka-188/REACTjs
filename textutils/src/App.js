@@ -8,13 +8,7 @@ import TextForm from "./components/TextForm";
 import { useState } from "react";
 import Alert from "./components/Alert";
 import About from "./components/About";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  // Link,
-
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function App() {
   // make a state to see wheather mode will be dark or light
@@ -46,24 +40,26 @@ function App() {
   };
   return (
     <>
+      
+      {/* <Navbar/> */}
+
+
+      <Router>
       <Navbar
         title="TextFun"
         about="About"
         mode={mode}
         toggleMode={toggleMode}
       />
-      {/* <Navbar/> */}
-
       <Alert alert={alert} />
-
-      <Router>
         <Routes>
-          <Route path="/about" element={<About />} />
+          <Route exact path="/about" element={<About />} />
 
           <Route
+            exact
             path="/"
             element={
-              <TextForm heading="Enter the text to analyse: " mode={mode} />
+              <TextForm heading="Enter the text to analyse: " mode={mode} showAlert ={showAlert}/>
             }
           />
         </Routes>
