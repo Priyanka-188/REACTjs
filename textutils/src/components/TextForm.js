@@ -60,6 +60,7 @@ export default function TextForm(props) {
     var text = document.getElementById("mybox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
     props.showAlert("Copied to clipboard ! ", "success");
   };
 
@@ -85,57 +86,62 @@ export default function TextForm(props) {
     >
       <div className="mb-3">
         <label htmlFor="mybox" className="form-label ">
-          <h1>{props.heading}</h1>
+          <h2 className='my-2'>{props.heading}</h2>
         </label>
         <textarea
           className="form-control "
           id="mybox"
           rows="8"
           style={{
-            backgroundColor: props.mode === "dark" ? "grey" : "white",
-            color: props.mode === "dark" ? "white" : "black",
+            backgroundColor: props.mode === "dark" ? "rgb(36 74 104)" : "white",
+            color: props.mode === "dark" ? "white" : "rgb(36 74 104)",
           }}
           value={text}
           onChange={handleOnChange} //setting the value of text default initially but change in text (addition of text ) will be handle by onChnage (handleOnClick ) function.
         ></textarea>
-        <button className="btn btn-primary my-3" onClick={handleUpClick}>
+
+
+        <button disabled={text.length===0} className="btn btn-primary my-3" onClick={handleUpClick}>
           {" "}
           Uppercase
         </button>
-        <button className="btn btn-primary my-3 mx-2" onClick={handleLowClick}>
+        <button disabled={text.length===0} className="btn btn-primary my-3 mx-2" onClick={handleLowClick}>
           {" "}
           Lowercase
         </button>
-        <button
+
+        <button disabled={text.length===0}        
           className="btn btn-primary  my-3 mx-1"
           onClick={handleCapitalize}
         >
           Capitalize Case
         </button>
-        <button
+
+        <button disabled={text.length===0}
           className="btn btn-primary my-3  mx-1"
           onClick={handleFirstLetter}
         >
           Capitalize After FullStop
         </button>
-        <button
+
+        <button disabled={text.length===0}
           className="btn btn-primary my-3  mx-1"
           onClick={handleReverseString}
         >
           Reverse Text
         </button>
 
-        <button className="btn btn-primary my-3  mx-1" onClick={handleCopy}>
+        <button disabled={text.length===0} className="btn btn-primary my-3  mx-1" onClick={handleCopy}>
           Copy
         </button>
-        <button
+        <button disabled={text.length===0}
           className="btn btn-primary  my-3 mx-1"
           onClick={RemoveExtraSpaces}
         >
           Remove ExtraSpaces
         </button>
 
-        <button className="btn btn-primary  my-3 mx-1" onClick={handleclear}>
+        <button disabled={text.length===0} className="btn btn-primary  my-3 mx-1" onClick={handleclear}>
           Clear
         </button>
       </div>
@@ -148,12 +154,13 @@ export default function TextForm(props) {
           {text.trim() === "" ? 0 : text.match(/\S+/g).length} words and{" "}
           {text.replace(/\s+/g, "").length} characters
         </p>
-        <p>{0.008 * text.split(" ").length} Minutes to read</p>
+
+        <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to read</p>
         <h2>Preview</h2>
         <p>
           {text.length > 0
             ? text
-            : "Enter something in the textbox above to preview it here."}
+            : "Nothing to Preview."}
         </p>
       </div>
     </div>

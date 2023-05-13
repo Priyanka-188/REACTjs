@@ -30,12 +30,12 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "#052c65";
       showAlert("Dark mode has been enabled", "success ");
-      document.title = "TextFun - Dark Mode";
+      // document.title = "TextFun - Dark Mode";
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light mode has been enabled", "success ");
-      document.title = "TextFun - Light Mode";
+      // document.title = "TextFun - Light Mode";
     }
   };
   return (
@@ -53,17 +53,17 @@ function App() {
       />
       <Alert alert={alert} />
         <Routes>
-          <Route exact path="/about" element={<About />} />
+          <Route exact path="/about"  element={<About mode={mode}/>} />
 
           <Route
             exact
             path="/"
             element={
-              <TextForm heading="Enter the text to analyse: " mode={mode} showAlert ={showAlert}/>
-            }
-          />
+              <TextForm heading="Try TextFun - Word Counter , Character Counter ,  Remove extra spaces " mode={mode} showAlert ={showAlert}/>
+             }
+          /> 
         </Routes>
-      </Router>
+      </Router> 
     </>
   );
 }
