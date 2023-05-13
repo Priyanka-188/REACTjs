@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/REACTjs/textutils/static/css/main.a55bed16.css",
-    "main.js": "/REACTjs/textutils/static/js/main.ba9020fe.js",
-    "static/js/787.719ec76d.chunk.js": "/REACTjs/textutils/static/js/787.719ec76d.chunk.js",
-    "index.html": "/REACTjs/textutils/index.html",
-    "main.a55bed16.css.map": "/REACTjs/textutils/static/css/main.a55bed16.css.map",
-    "main.ba9020fe.js.map": "/REACTjs/textutils/static/js/main.ba9020fe.js.map",
-    "787.719ec76d.chunk.js.map": "/REACTjs/textutils/static/js/787.719ec76d.chunk.js.map"
+    "main.css": "/REACTjs/static/css/main.a55bed16.css",
+    "main.js": "/REACTjs/static/js/main.d2046fab.js",
+    "static/js/787.719ec76d.chunk.js": "/REACTjs/static/js/787.719ec76d.chunk.js",
+    "index.html": "/REACTjs/index.html",
+    "main.a55bed16.css.map": "/REACTjs/static/css/main.a55bed16.css.map",
+    "main.d2046fab.js.map": "/REACTjs/static/js/main.d2046fab.js.map",
+    "787.719ec76d.chunk.js.map": "/REACTjs/static/js/787.719ec76d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a55bed16.css",
-    "static/js/main.ba9020fe.js"
+    "static/js/main.d2046fab.js"
   ]
 }
